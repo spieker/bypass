@@ -18,8 +18,7 @@ defmodule Bypass.Mixfile do
 
   defp deps do
     [
-      # match gprc
-      {:cowlib, "~> 2.2", override: true},
+      {:cowlib, "~> 1.0"},
       {:plug, "~> 1.0"},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:espec, "~> 1.4", only: [:dev, :test]},
@@ -36,7 +35,10 @@ defmodule Bypass.Mixfile do
   # dependencies in when in the test env.
   defp deps(:test) do
     deps() ++ [
-      {:cowlib, "~> 1.0.1", override: true},
+      #{:cowlib, "~> 1.0.1", override: true},
+      
+      # match grpc
+      {:cowlib, "~> 2.2", override: true},
       {:ranch, "~> 1.2.0", override: true},
 
       {:gun, github: "PSPDFKit-labs/gun", only: :test}
