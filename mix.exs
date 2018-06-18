@@ -18,7 +18,9 @@ defmodule Bypass.Mixfile do
 
   defp deps do
     [
-      {:cowlib, "~> 1.0"},
+      #{:cowlib, "~> 1.0"},
+      # try both
+      {:cowlib, "~> 2.2", override: true},
       {:plug, "~> 1.0"},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:espec, "~> 1.4", only: [:dev, :test]},
