@@ -21,7 +21,8 @@ defmodule Bypass.Mixfile do
       #{:cowlib, "~> 1.0"},
       # try both
       {:cowlib, "~> 2.2", override: true},
-      {:plug, "~> 1.0"},
+      # {:plug, "~> 1.0"},
+      {:plug, git: "https://github.com/elixir-plug/plug", branch: "master", override: true},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:espec, "~> 1.4", only: [:dev, :test]},
     ]
