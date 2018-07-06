@@ -20,7 +20,7 @@ defmodule Bypass.Mixfile do
     [
       #{:cowlib, "~> 1.0"},
       # try both
-      {:cowlib, "~> 2.2", override: true},
+      {:cowlib, "~> 2.3", override: true},
       # {:plug, "~> 1.0"},
       {:plug, git: "https://github.com/elixir-plug/plug", branch: "master", override: true},
       {:ex_doc, "> 0.0.0", only: :dev},
@@ -39,9 +39,9 @@ defmodule Bypass.Mixfile do
   defp deps(:test) do
     deps() ++ [
       #{:cowlib, "~> 1.0.1", override: true},
-      
+
       # match grpc
-      {:cowlib, "~> 2.2", override: true},
+      {:cowlib, "~> 2.3", override: true},
       {:ranch, "~> 1.2.0", override: true},
 
       {:gun, github: "PSPDFKit-labs/gun", only: :test}
