@@ -264,12 +264,12 @@ defmodule Bypass.Instance do
     plug_opts = [self()]
     {:ok, socket} = :ranch_tcp.listen(ip: @listen_ip, port: port)
     cowboy_opts = [ref: ref, acceptors: 5, port: port, socket: socket]
-    {:ok, _pid} = Plug.Adapters.Cowboy.http(Bypass.Plug, plug_opts, cowboy_opts)
+    {:ok, _pid} = Plug.Adapters.Cowboy2.http(Bypass.Plug, plug_opts, cowboy_opts)
     socket
   end
 
   defp do_down(ref, socket) do
-    :ok = Plug.Adapters.Cowboy.shutdown(ref)
+    :ok = Plug.Adapters.Cowboy2.shutdown(ref)
 
     # `port_close` is synchronous, so after it has returned we _know_ that the socket has been
     # closed. If we'd rely on ranch's supervisor shutting down the acceptor processes and thereby
